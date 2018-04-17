@@ -1,0 +1,21 @@
+分为个部分
+1.logo(不使用组件)
+2.输入框(不使用组件)
+3.todoArea{
+    1.stateSelect(不使用组件)[state(1,2,3)] {
+        1.剩余项目数目(组件)
+        2.全部项目(组件)
+        3.未完成项目(组件)
+        4.已完成项目(组件)
+    }
+    2.todoList(组件)[all_num, finished_num] {
+        1.todoItem(组件) {
+            1.完成按钮(组件)[isFinished]
+            2 .具体内容(组件)[text]
+        }
+        *2.todoItem(组件) {
+            1.完成按钮(组件)[isFinished]
+            2 .具体内容(组件)[text]
+        }
+    }
+}

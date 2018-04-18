@@ -60,4 +60,7 @@ export default {
     input{
         width: 500px;
     }
+    h1{
+        margin-bottom: 35px;
+    }
 </style>

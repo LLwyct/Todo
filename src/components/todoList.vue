@@ -28,7 +28,7 @@ export default {
   },
   created: function() {
     let localstorage = JSON.parse(localStorage.getItem("TODOS"));
-    if (localstorage === null) {
+    if (localstorage == null) {
       this.todos = [];
       busEvent.$emit("unshow-select");
     } else {
@@ -49,13 +49,16 @@ export default {
     left_num: function(n, o) {
       busEvent.$emit("leftnum-changed", this.left_num);
     },
-    todos: function(n, o) {
-      if (this.todos.length != 0) {
-        busEvent.$emit("show-select");
-      } else {
-        busEvent.$emit("unshow-select");
-      }
-      localStorage.setItem("TODOS", JSON.stringify(this.todos));
+    todos: {
+      handler: function(n, o) {
+        if (this.todos.length != 0) {
+          busEvent.$emit("show-select");
+        } else {
+          busEvent.$emit("unshow-select");
+        }
+        localStorage.setItem("TODOS", JSON.stringify(this.todos));
+      },
+      deep: true
     }
   },
   mounted: function() {
@@ -78,18 +81,16 @@ export default {
       }
     });
     // 完成一个项目
-    busEvent.$on("finish-one", e => {
+    busEvent.$on("finish-one", (e) => {
       this.left_num--;
       this.todos[e].isFinished = true;
-      localStorage.setItem("TODOS", JSON.stringify(this.todos));
     });
     // 恢复一个项目
-    busEvent.$on("revive-one", e => {
+    busEvent.$on("revive-one", (e) => {
       this.left_num++;
       this.todos[e].isFinished = false;
-      localStorage.setItem("TODOS", JSON.stringify(this.todos));
     });
-    busEvent.$on("selector-changed", label => {
+    busEvent.$on("selector-changed", (label) => {
       this.show_label = label;
     });
   }

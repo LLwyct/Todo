@@ -9,6 +9,7 @@
   "author": "liwenchi",
   "license": "MIT",
   "devDependencies": {
+    "babel-plugin-component": "^1.1.0",
     "css-loader": "^0.28.11",
     "element-ui": "^2.3.4",
     "file-loader": "^1.1.11",

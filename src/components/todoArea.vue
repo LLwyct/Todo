@@ -20,7 +20,7 @@ export default {
     },
     data: function() {
         return {
-            isShow: true,
+            isShow: false,
         }
     },
     mounted: function() {

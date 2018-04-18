@@ -12,26 +12,18 @@
 
 <script>
 import busEvent from '../bus/bus.js';
-import bus from '../bus/bus.js';
 
 
 export default {
     data: function() {
         return {
-            leftItem_num: null,
+            leftItem_num: 0,
             radio: '1'
         }
     },
     methods: {
         change: function(label) {
-            busEvent.$emit('selector-changed', label);
-        }
-    },
-    watch: {
-        leftItem_num: function(n, o) {
-            if(this.leftItem_num != 0){
-                busEvent.$emit('show');
-            }
+            busEvent.$emit('selector-changed', Number(label));
         }
     },
     mounted: function() {

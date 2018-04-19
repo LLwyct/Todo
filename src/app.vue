@@ -23,7 +23,6 @@ export default {
         addNewTodo: function() {
             if(this.newTodo.length != 0) {
                 busEvent.$emit('add-newTodo', this.newTodo);
-                localStorage.setItem('TODOS', JSON.stringify(this.todos));
                 this.newTodo = '';
             }
         }
@@ -33,14 +32,16 @@ export default {
 
 
 <style lang="less">
-    *{
+    html, body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
         box-sizing: border-box;
-        // margin: 0px;
     }
     body{
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: space-around;
         background-color: #f5f5f5;
         font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
     }
@@ -57,10 +58,10 @@ export default {
         font-size: 100px;
         color: #bda5a5;
     }
-    input{
-        width: 500px;
-    }
     h1{
         margin-bottom: 35px;
     }
+    // input{
+    //     width: 300px;
+    // }
 </style>
